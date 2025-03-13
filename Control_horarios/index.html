@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Control de Horario</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <div class="login-header">
+                <img src="logo.png" alt="Logo de la empresa" class="logo">
+                <h1>Control de Horario</h1>
+                <p>Empresa de Transporte</p>
+            </div>
+            
+            <div class="login-form">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="employee">Empleado</button>
+                    <button class="tab-btn" data-tab="admin">Administrador</button>
+                </div>
+                
+                <div class="tab-content active" id="employee-tab">
+                    <form id="employee-login-form">
+                        <div class="input-group">
+                            <span class="material-symbols-outlined">person</span>
+                            <input type="text" id="employee-id" placeholder="ID de Empleado" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-symbols-outlined">lock</span>
+                            <input type="password" id="employee-password" placeholder="Contraseña" required>
+                        </div>
+                        <button type="submit" class="login-btn">Iniciar Sesión</button>
+                    </form>
+                </div>
+                
+                <div class="tab-content" id="admin-tab">
+                    <form id="admin-login-form">
+                        <div class="input-group">
+                            <span class="material-symbols-outlined">admin_panel_settings</span>
+                            <input type="text" id="admin-id" placeholder="ID de Administrador" required>
+                        </div>
+                        <div class="input-group">
+                            <span class="material-symbols-outlined">lock</span>
+                            <input type="password" id="admin-password" placeholder="Contraseña" required>
+                        </div>
+                        <button type="submit" class="login-btn">Iniciar Sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

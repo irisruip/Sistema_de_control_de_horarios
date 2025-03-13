@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administrador</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/50" alt="Logo" class="sidebar-logo">
+                <h2>TransporteApp</h2>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar admin-avatar">
+                    <span class="material-symbols-outlined">admin_panel_settings</span>
+                </div>
+                <div class="user-details">
+                    <h3 id="admin-name">Nombre del Administrador</h3>
+                    <span class="user-role admin-role">Administrador</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard"><span class="material-symbols-outlined">dashboard</span> Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#employees"><span class="material-symbols-outlined">group</span> Empleados</a>
+                    </li>
+                    <li>
+                        <a href="#schedules"><span class="material-symbols-outlined">calendar_month</span> Horarios</a>
+                    </li>
+                    <li>
+                        <a href="#reports"><span class="material-symbols-outlined">description</span> Reportes</a>
+                    </li>
+                    <li>
+                        <a href="#requests"><span class="material-symbols-outlined">event_available</span> Solicitudes</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn"><span class="material-symbols-outlined">logout</span> Cerrar Sesión</button>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="current-date">
+                    <span class="material-symbols-outlined">today</span>
+                    <span id="current-date">Lunes, 10 de Marzo de 2025</span>
+                </div>
+                <div class="header-actions">
+                    <button id="notifications-btn" class="icon-btn">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="notification-badge">5</span>
+                    </button>
+                </div>
+            </header>
+            
+            <section id="dashboard-section" class="content-section active">
+                <div class="section-header">
+                    <h2>Panel de Control</h2>
+                </div>
+                
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="material-symbols-outlined">group</span>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Empleados Activos</h3>
+                            <p class="stat-value">24/30</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="material-symbols-outlined">schedule</span>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Horas Trabajadas Hoy</h3>
+                            <p class="stat-value">142h 30m</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="material-symbols-outlined">pending_actions</span>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Solicitudes Pendientes</h3>
+                            <p class="stat-value">8</p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <span class="material-symbols-outlined">warning</span>
+                        </div>
+                        <div class="stat-content">
+                            <h3>Reportes Sin Resolver</h3>
+                            <p class="stat-value">3</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="admin-sections-container">
+                    <div class="admin-section">
+                        <div class="section-header">
+                            <h3>Actividad Reciente</h3>
+                            <a href="#" class="view-all">Ver todo</a>
+                        </div>
+                        
+                        <ul class="activity-list">
+                            <li class="activity-item">
+                                <div class="activity-icon clock-in">
+                                    <span class="material-symbols-outlined">login</span>
+                                </div>
+                                <div class="activity-details">
+                                    <p class="activity-description">Carlos Rodríguez inició turno</p>
+                                    <p class="activity-time">Hoy, 8:05 AM</p>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-icon report">
+                                    <span class="material-symbols-outlined">description</span>
+                                </div>
+                                <div class="activity-details">
+                                    <p class="activity-description">María López envió un reporte</p>
+                                    <p class="activity-time">Hoy, 9:15 AM</p>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-icon request">
+                                    <span class="material-symbols-outlined">event_available</span>
+                                </div>
+                                <div class="activity-details">
+                                    <p class="activity-description">Juan Pérez solicitó cambio de horario</p>
+                                    <p class="activity-time">Hoy, 9:30 AM</p>
+                                </div>
+                            </li>
+                            <li class="activity-item">
+                                <div class="activity-icon clock-out">
+                                    <span class="material-symbols-outlined">logout</span>
+                                </div>
+                                <div class="activity-details">
+                                    <p class="activity-description">Ana Martínez finalizó turno</p>
+                                    <p class="activity-time">Ayer, 6:02 PM</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="admin-section">
+                        <div class="section-header">
+                            <h3>Empleados Activos</h3>
+                            <a href="#" class="view-all">Ver todo</a>
+                        </div>
+                        
+                        <ul class="active-employees-list">
+                            <li class="employee-item">
+                                <div class="employee-avatar">
+                                    <span class="material-symbols-outlined">person</span>
+                                </div>
+                                <div class="employee-details">
+                                    <h4>Carlos Rodríguez</h4>
+                                    <p>Ruta 103 - Desde: 8:05 AM</p>
+                                </div>
+                                <div class="employee-status active">
+                                    <span>Activo</span>
+                                </div>
+                            </li>
+                            <li class="employee-item">
+                                <div class="employee-avatar">
+                                    <span class="material-symbols-outlined">person</span>
+                                </div>
+                                <div class="employee-details">
+                                    <h4>María López</h4>
+                                    <p>Ruta 205 - Desde: 7:30 AM</p>
+                                </div>
+                                <div class="employee-status active">
+                                    <span>Activo</span>
+                                </div>
+                            </li>
+                            <li class="employee-item">
+                                <div class="employee-avatar">
+                                    <span class="material-symbols-outlined">person</span>
+                                </div>
+                                <div class="employee-details">
+                                    <h4>Pedro Sánchez</h4>
+                                    <p>Ruta 118 - Desde: 8:15 AM</p>
+                                </div>
+                                <div class="employee-status break">
+                                    <span>Descanso</span>
+                                </div>
+                            </li>
+                            <li class="employee-item">
+                                <div class="employee-avatar">
+                                    <span class="material-symbols-outlined">person</span>
+                                </div>
+                                <div class="employee-details">
+                                    <h4>Laura Gómez</h4>
+                                    <p>Ruta 302 - Desde: 7:45 AM</p>
+                                </div>
+                                <div class="employee-status active">
+                                    <span>Activo</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="admin-section">
+                    <div class="section-header">
+                        <h3>Solicitudes Pendientes</h3>
+                        <a href="#" class="view-all">Ver todo</a>
+                    </div>
+                    
+                    <div class="pending-requests">
+                        <div class="request-item">
+                            <div class="request-icon">
+                                <span class="material-symbols-outlined">medical_services</span>
+                            </div>
+                            <div class="request-details">
+                                <h4>Cita Médica - Juan Pérez</h4>
+                                <p class="request-date">Solicitado: 08/03/2025</p>
+                                <p class="request-description">Solicitud de permiso para el 15/03/2025, 10:00 AM - 12:00 PM.</p>
+                            </div>
+                            <div class="request-actions">
+                                <button class="action-btn approve">
+                                    <span class="material-symbols-outlined">check</span>
+                                </button>
+                                <button class="action-btn reject">
+                                    <span class="material-symbols-outlined">close</span>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="request-item">
+                            <div class="request-icon">
+                                <span class="material-symbols-outlined">event_busy</span>
+                            </div>
+                            <div class="request-details">
+                                <h4>Cambio de Turno - María López</h4>
+                                <p class="request-date">Solicitado: 09/03/2025</p>
+                                <p class="request-description">Solicitud de cambio de turno del 12/03/2025 al 13/03/2025.</p>
+                            </div>
+                            <div class="request-actions">
+                                <button class="action-btn approve">
+                                    <span class="material-symbols-outlined">check</span>
+                                </button>
+                                <button class="action-btn reject">
+                                    <span class="material-symbols-outlined">close</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="employees-section" class="content-section">
+                <div class="section-header">
+                    <h2>Gestión de Empleados</h2>
+                    <div class="section-actions">
+                        <div class="search-container">
+                            <input type="text" id="employee-search" placeholder="Buscar empleado...">
+                            <button class="search-btn">
+                                <span class="material-symbols-outlined">search</span>
+                            </button>
+                        </div>
+                        <button class="primary-btn" id="add-employee-btn">
+                            <span class="material-symbols-outlined">person_add</span>
+                            Nuevo Empleado
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="employees-table-container">
+                    <table class="employees-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Cargo</th>
+                                <th>Estado</th>
+                                <th>Horas Hoy</th>
+                                <th>Horas Semana</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>Carlos Rodríguez</td>
+                                <td>Conductor</td>
+                                <td><span class="status-badge active">Activo</span></td>
+                                <td>2h 15m</td>
+                                <td>18h 45m</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="icon-btn" title="Ver detalles">
+                                            <span class="material-symbols-outlined">visibility</span>
+                                        </button>
+                                        <button class="icon-btn" title="Editar">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button class="icon-btn" title="Horario">
+                                            <span class="material-symbols-outlined">calendar_month</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>María López</td>
+                                <td>Conductor</td>
+                                <td><span class="status-badge active">Activo</span></td>
+                                <td>2h 45m</td>
+                                <td>20h 15m</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="icon-btn" title="Ver detalles">
+                                            <span class="material-symbols-outlined">visibility</span>
+                                        </button>
+                                        <button class="icon-btn" title="Editar">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button class="icon-btn" title="Horario">
+                                            <span class="material-symbols-outlined">calendar_month</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>003</td>
+                                <td>Pedro Sánchez</td>
+                                <td>Conductor</td>
+                                <td><span class="status-badge break">Descanso</span></td>
+                                <td>1h 30m</td>
+                                <td>16h 30m</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="icon-btn" title="Ver detalles">
+                                            <span class="material-symbols-outlined">visibility</span>
+                                        </button>
+                                        <button class="icon-btn" title="Editar">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button class="icon-btn" title="Horario">
+                                            <span class="material-symbols-outlined">calendar_month</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>004</td>
+                                <td>Laura Gómez</td>
+                                <td>Conductor</td>
+                                <td><span class="status-badge active">Activo</span></td>
+                                <td>2h 30m</td>
+                                <td>19h 15m</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="icon-btn" title="Ver detalles">
+                                            <span class="material-symbols-outlined">visibility</span>
+                                        </button>
+                                        <button class="icon-btn" title="Editar">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button class="icon-btn" title="Horario">
+                                            <span class="material-symbols-outlined">calendar_month</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>005</td>
+                                <td>Juan Pérez</td>
+                                <td>Conductor</td>
+                                <td><span class="status-badge inactive">Inactivo</span></td>
+                                <td>0h 0m</td>
+                                <td>16h 0m</td>
+                                <td>
+                                    <div class="table-actions">
+                                        <button class="icon-btn" title="Ver detalles">
+                                            <span class="material-symbols-outlined">visibility</span>
+                                        </button>
+                                        <button class="icon-btn" title="Editar">
+                                            <span class="material-symbols-outlined">edit</span>
+                                        </button>
+                                        <button class="icon-btn" title="Horario">
+                                            <span class="material-symbols-outlined">calendar_month</span>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-btn prev">
+                        <span class="material-symbols-outlined">chevron_left</span>
+                    </button>
+                    <div class="pagination-numbers">
+                        <button class="pagination-number active">1</button>
+                        <button class="pagination-number">2</button>
+                        <button class="pagination-number">3</button>
+                    </div>
+                    <button class="pagination-btn next">
+                        <span class="material-symbols-outlined">chevron_right</span>
+                    </button>
+                </div>
+            </section>
+            
+            <section id="schedules-section" class="content-section">
+                <!-- Schedules content would go here -->
+                <div class="section-header">
+                    <h2>Gestión de Horarios</h2>
+                    <div class="section-actions">
+                        <button class="primary-btn" id="edit-schedule-btn">
+                            <span class="material-symbols-outlined">edit_calendar</span>
+                            Editar Horarios
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Schedule management interface would go here -->
+            </section>
+            
+            <section id="reports-section" class="content-section">
+                <!-- Reports content would go here -->
+                <div class="section-header">
+                    <h2>Reportes</h2>
+                </div>
+                
+                <!-- Reports management interface would go here -->
+            </section>
+            
+            <section id="requests-section" class="content-section">
+                <!-- Requests content would go here -->
+                <div class="section-header">
+                    <h2>Solicitudes</h2>
+                </div>
+                
+                <!-- Requests management interface would go here -->
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

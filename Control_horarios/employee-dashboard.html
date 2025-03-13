@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Empleado</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="https://via.placeholder.com/50" alt="Logo" class="sidebar-logo">
+                <h2>TransporteApp</h2>
+            </div>
+            
+            <div class="user-info">
+                <div class="user-avatar">
+                    <span class="material-symbols-outlined">person</span>
+                </div>
+                <div class="user-details">
+                    <h3 id="user-name">Nombre del Empleado</h3>
+                    <span class="user-role">Empleado</span>
+                </div>
+            </div>
+            
+            <nav class="sidebar-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#dashboard"><span class="material-symbols-outlined">dashboard</span> Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#schedule"><span class="material-symbols-outlined">calendar_month</span> Mi Horario</a>
+                    </li>
+                    <li>
+                        <a href="#reports"><span class="material-symbols-outlined">description</span> Reportes</a>
+                    </li>
+                    <li>
+                        <a href="#requests"><span class="material-symbols-outlined">event_available</span> Solicitudes</a>
+                    </li>
+                </ul>
+            </nav>
+            
+            <div class="sidebar-footer">
+                <button id="logout-btn"><span class="material-symbols-outlined">logout</span> Cerrar Sesión</button>
+            </div>
+        </aside>
+        
+        <main class="main-content">
+            <header class="dashboard-header">
+                <div class="current-date">
+                    <span class="material-symbols-outlined">today</span>
+                    <span id="current-date">Lunes, 10 de Marzo de 2025</span>
+                </div>
+                <div class="header-actions">
+                    <button id="notifications-btn" class="icon-btn">
+                        <span class="material-symbols-outlined">notifications</span>
+                        <span class="notification-badge">3</span>
+                    </button>
+                </div>
+            </header>
+            
+            <section id="dashboard-section" class="content-section active">
+                <div class="section-header">
+                    <h2>Panel de Control</h2>
+                </div>
+                
+                <div class="time-tracking-card">
+                    <div class="card-header">
+                        <h3>Control de Tiempo</h3>
+                        <span id="current-time">09:41 AM</span>
+                    </div>
+                    
+                    <div class="time-status">
+                        <div class="status-indicator" id="status-indicator">
+                            <span class="material-symbols-outlined">schedule</span>
+                            <span id="current-status">No has iniciado turno</span>
+                        </div>
+                        
+                        <div class="time-actions">
+                            <button id="clock-in-btn" class="action-btn clock-in">
+                                <span class="material-symbols-outlined">login</span>
+                                Iniciar Turno
+                            </button>
+                            <button id="clock-out-btn" class="action-btn clock-out" disabled>
+                                <span class="material-symbols-outlined">logout</span>
+                                Finalizar Turno
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="time-summary">
+                        <div class="summary-item">
+                            <span class="summary-label">Hoy</span>
+                            <span class="summary-value" id="today-hours">0h 0m</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Esta semana</span>
+                            <span class="summary-value" id="week-hours">12h 30m</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="summary-label">Este mes</span>
+                            <span class="summary-value" id="month-hours">48h 15m</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">event_note</span>
+                        </div>
+                        <div class="card-content">
+                            <h4>Próximo Turno</h4>
+                            <p>Mañana, 8:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">notifications_active</span>
+                        </div>
+                        <div class="card-content">
+                            <h4>Recordatorios</h4>
+                            <p>Reunión de equipo: Miércoles 10:00 AM</p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="card-icon">
+                            <span class="material-symbols-outlined">pending_actions</span>
+                        </div>
+                        <div class="card-content">
+                            <h4>Solicitudes Pendientes</h4>
+                            <p>1 solicitud de cambio de horario</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="recent-activity">
+                    <div class="section-header">
+                        <h3>Actividad Reciente</h3>
+                    </div>
+                    
+                    <ul class="activity-list">
+                        <li class="activity-item">
+                            <div class="activity-icon clock-in">
+                                <span class="material-symbols-outlined">login</span>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-description">Iniciaste turno</p>
+                                <p class="activity-time">Ayer, 8:02 AM</p>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-icon clock-out">
+                                <span class="material-symbols-outlined">logout</span>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-description">Finalizaste turno</p>
+                                <p class="activity-time">Ayer, 4:15 PM</p>
+                            </div>
+                        </li>
+                        <li class="activity-item">
+                            <div class="activity-icon report">
+                                <span class="material-symbols-outlined">description</span>
+                            </div>
+                            <div class="activity-details">
+                                <p class="activity-description">Enviaste un reporte de incidencia</p>
+                                <p class="activity-time">Ayer, 2:30 PM</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+            
+            <section id="schedule-section" class="content-section">
+                <div class="section-header">
+                    <h2>Mi Horario</h2>
+                    <button class="primary-btn" id="request-change-btn">
+                        <span class="material-symbols-outlined">edit_calendar</span>
+                        Solicitar Cambio
+                    </button>
+                </div>
+                
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <button id="prev-month" class="calendar-nav-btn">
+                            <span class="material-symbols-outlined">chevron_left</span>
+                        </button>
+                        <h3 id="calendar-month">Marzo 2025</h3>
+                        <button id="next-month" class="calendar-nav-btn">
+                            <span class="material-symbols-outlined">chevron_right</span>
+                        </button>
+                    </div>
+                    
+                    <div class="calendar-grid">
+                        <div class="calendar-day-header">Lun</div>
+                        <div class="calendar-day-header">Mar</div>
+                        <div class="calendar-day-header">Mié</div>
+                        <div class="calendar-day-header">Jue</div>
+                        <div class="calendar-day-header">Vie</div>
+                        <div class="calendar-day-header">Sáb</div>
+                        <div class="calendar-day-header">Dom</div>
+                        
+                        <!-- Calendar days will be generated by JavaScript -->
+                        <div class="calendar-day prev-month">28</div>
+                        <div class="calendar-day">1</div>
+                        <div class="calendar-day">2</div>
+                        <div class="calendar-day">3</div>
+                        <div class="calendar-day">4</div>
+                        <div class="calendar-day">5</div>
+                        <div class="calendar-day">6</div>
+                        <div class="calendar-day">7</div>
+                        <div class="calendar-day">8</div>
+                        <div class="calendar-day">9</div>
+                        <div class="calendar-day current-day">10
+                            <div class="day-schedule">8:00 - 16:00</div>
+                        </div>
+                        <div class="calendar-day">11
+                            <div class="day-schedule">8:00 - 16:00</div>
+                        </div>
+                        <div class="calendar-day">12
+                            <div class="day-schedule">8:00 - 16:00</div>
+                        </div>
+                        <div class="calendar-day">13
+                            <div class="day-schedule">Libre</div>
+                        </div>
+                        <!-- More days would be here -->
+                    </div>
+                </div>
+                
+                <div class="schedule-details">
+                    <h3>Detalles del Horario</h3>
+                    <div class="schedule-week">
+                        <div class="schedule-day">
+                            <div class="day-header">
+                                <span class="day-name">Lunes</span>
+                                <span class="day-date">10 Mar</span>
+                            </div>
+                            <div class="day-time-slot">
+                                <span class="time-range">8:00 AM - 4:00 PM</span>
+                                <span class="time-duration">8 horas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">
+                                <span class="day-name">Martes</span>
+                                <span class="day-date">11 Mar</span>
+                            </div>
+                            <div class="day-time-slot">
+                                <span class="time-range">8:00 AM - 4:00 PM</span>
+                                <span class="time-duration">8 horas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">
+                                <span class="day-name">Miércoles</span>
+                                <span class="day-date">12 Mar</span>
+                            </div>
+                            <div class="day-time-slot">
+                                <span class="time-range">8:00 AM - 4:00 PM</span>
+                                <span class="time-duration">8 horas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day day-off">
+                            <div class="day-header">
+                                <span class="day-name">Jueves</span>
+                                <span class="day-date">13 Mar</span>
+                            </div>
+                            <div class="day-time-slot">
+                                <span class="time-range">Día Libre</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day">
+                            <div class="day-header">
+                                <span class="day-name">Viernes</span>
+                                <span class="day-date">14 Mar</span>
+                            </div>
+                            <div class="day-time-slot">
+                                <span class="time-range">8:00 AM - 4:00 PM</span>
+                                <span class="time-duration">8 horas</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day weekend">
+                            <div class="day-header">
+                                <span class="day-name">Sábado</span>
+                                <span class="day-date">15 Mar</span>
+                            </div>
+                            <div class="day-time-slot">
+                                <span class="time-range">Fin de Semana</span>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-day weekend">
+                            <div class="day-header">
+                                <span class="day-name">Domingo</span>
+                                <span class="day-date">16 Mar</span>
+                            </div>
+                            <div class="day-time-slot">
+                                <span class="time-range">Fin de Semana</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="reports-section" class="content-section">
+                <div class="section-header">
+                    <h2>Reportes</h2>
+                    <button class="primary-btn" id="new-report-btn">
+                        <span class="material-symbols-outlined">add</span>
+                        Nuevo Reporte
+                    </button>
+                </div>
+                
+                <div class="reports-list">
+                    <div class="report-item">
+                        <div class="report-icon">
+                            <span class="material-symbols-outlined">warning</span>
+                        </div>
+                        <div class="report-details">
+                            <h4>Incidencia en Ruta 103</h4>
+                            <p class="report-date">09/03/2025</p>
+                            <p class="report-description">Retraso debido a obras en la carretera principal.</p>
+                        </div>
+                        <div class="report-status pending">
+                            <span>Pendiente</span>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-icon">
+                            <span class="material-symbols-outlined">build</span>
+                        </div>
+                        <div class="report-details">
+                            <h4>Mantenimiento Vehículo #42</h4>
+                            <p class="report-date">05/03/2025</p>
+                            <p class="report-description">Solicitud de revisión de frenos.</p>
+                        </div>
+                        <div class="report-status approved">
+                            <span>Aprobado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="report-item">
+                        <div class="report-icon">
+                            <span class="material-symbols-outlined">info</span>
+                        </div>
+                        <div class="report-details">
+                            <h4>Informe de Pasajeros</h4>
+                            <p class="report-date">01/03/2025</p>
+                            <p class="report-description">Aumento de pasajeros en horario pico.</p>
+                        </div>
+                        <div class="report-status completed">
+                            <span>Completado</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="new-report-form" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Nuevo Reporte</h3>
+                            <button class="close-btn">&times;</button>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label for="report-title">Título</label>
+                                <input type="text" id="report-title" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="report-type">Tipo de Reporte</label>
+                                <select id="report-type" required>
+                                    <option value="">Seleccionar tipo</option>
+                                    <option value="incident">Incidencia</option>
+                                    <option value="maintenance">Mantenimiento</option>
+                                    <option value="info">Información</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="report-description">Descripción</label>
+                                <textarea id="report-description" rows="4" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="secondary-btn cancel-btn">Cancelar</button>
+                                <button type="submit" class="primary-btn">Enviar Reporte</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="requests-section" class="content-section">
+                <div class="section-header">
+                    <h2>Solicitudes de Cambio</h2>
+                    <button class="primary-btn" id="new-request-btn">
+                        <span class="material-symbols-outlined">add</span>
+                        Nueva Solicitud
+                    </button>
+                </div>
+                
+                <div class="requests-list">
+                    <div class="request-item">
+                        <div class="request-icon">
+                            <span class="material-symbols-outlined">medical_services</span>
+                        </div>
+                        <div class="request-details">
+                            <h4>Cita Médica</h4>
+                            <p class="request-date">Solicitado: 08/03/2025</p>
+                            <p class="request-description">Solicitud de permiso para el 15/03/2025, 10:00 AM - 12:00 PM.</p>
+                        </div>
+                        <div class="request-status pending">
+                            <span>Pendiente</span>
+                        </div>
+                    </div>
+                    
+                    <div class="request-item">
+                        <div class="request-icon">
+                            <span class="material-symbols-outlined">event_busy</span>
+                        </div>
+                        <div class="request-details">
+                            <h4>Cambio de Turno</h4>
+                            <p class="request-date">Solicitado: 01/03/2025</p>
+                            <p class="request-description">Solicitud de cambio de turno del 05/03/2025 al 06/03/2025.</p>
+                        </div>
+                        <div class="request-status approved">
+                            <span>Aprobado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="request-item">
+                        <div class="request-icon">
+                            <span class="material-symbols-outlined">beach_access</span>
+                        </div>
+                        <div class="request-details">
+                            <h4>Vacaciones</h4>
+                            <p class="request-date">Solicitado: 15/02/2025</p>
+                            <p class="request-description">Solicitud de vacaciones del 20/04/2025 al 27/04/2025.</p>
+                        </div>
+                        <div class="request-status rejected">
+                            <span>Rechazado</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="new-request-form" class="modal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Nueva Solicitud de Cambio</h3>
+                            <button class="close-btn">&times;</button>
+                        </div>
+                        <form>
+                            <div class="form-group">
+                                <label for="request-type">Tipo de Solicitud</label>
+                                <select id="request-type" required>
+                                    <option value="">Seleccionar tipo</option>
+                                    <option value="medical">Cita Médica</option>
+                                    <option value="shift-change">Cambio de Turno</option>
+                                    <option value="vacation">Vacaciones</option>
+                                    <option value="emergency">Emergencia</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="request-date-from">Desde</label>
+                                <input type="date" id="request-date-from" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="request-date-to">Hasta</label>
+                                <input type="date" id="request-date-to" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="request-reason">Motivo</label>
+                                <textarea id="request-reason" rows="4" required></textarea>
+                            </div>
+                            <div class="form-actions">
+                                <button type="button" class="secondary-btn cancel-btn">Cancelar</button>
+                                <button type="submit" class="primary-btn">Enviar Solicitud</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
